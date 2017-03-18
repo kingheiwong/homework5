@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Homework 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div class="container">
+            <div id="main2"  style="width: 800px;height:600px;"></div>
+             <script type="text/javascript">
+      var myChart = echarts.init(document.getElementById('main2'));
+var option = {
+    title: {
+        text: ''
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['啤酒','葡萄酒','烈酒']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'啤酒',
+            type:'line',
+            
+            areaStyle: {normal: {}},
+            data:[7599821,7612576,7447003,7498532,7802603,8083809,7286848,7718562,8103928,8202779,8057256,8071106],
+             "markPoint":{
+                "data":[
+                    {
+                        "type":"max",
+                        "name":"最多"
+                    },
+                      {
+                        "type":"min",
+                        "name":"最少"
+                    }
+                ]
+            }    
+        },
+        {
+            name:'葡萄酒',
+            type:'line',
+            
+            areaStyle: {normal: {}},
+            data:[1588901,1770057,1995111,2379850,3164107,3556149,3735296,4010293,4302422,4191222,4086709,4875464],
+             "markPoint":{
+                "data":[
+                    {
+                        "type":"max",
+                        "name":"最多"
+                    },
+                      {
+                        "type":"min",
+                        "name":"最少"
+                    }
+                ]
+            }    
+        },
+        {
+            name:'烈酒',
+            type:'line',
+           
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            areaStyle: {normal: {}},
+            data:[5670551,5376813,5586247,5927246,5946634,4244254,5156867,5464430,5807018,5543084,5851720,5373595],
+            
+            "markPoint":{
+                "data":[
+                    {
+                        "type":"max",
+                        "name":"最多"
+                    },
+                      {
+                        "type":"min",
+                        "name":"最少"
+                    }
+                    
+                ]
+            }    
+                }
+    ]
+};
+
+myChart.setOption(option);
+    </script>
+<div id="main"  style="width: 800px;height:600px;"></div>
+
+
+    <script type="text/javascript">
+
+        $(function() {
+           
+            $.getJSON("option.json", function(data) {
+                var option2 = data;
+                var myChart2 = echarts.init(document.getElementById('main'));
+                
+                myChart2.setOption(option2);
+            })
+        });
+    </script>
+    </div>
+</body>
+</html>
