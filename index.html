@@ -16,7 +16,9 @@
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div class="container">
-            <div id="main2"  style="width: 800px;height:600px;"></div>
+            <div id="main2"  style="width: 800px;height:600px;">
+                <h2>估計總飲酒量和人均飲酒量</h2>
+            </div>
             <!-- Chart 1 Script  -->
              <script type="text/javascript">
       var myChart = echarts.init(document.getElementById('main2'));
@@ -139,6 +141,14 @@ myChart.setOption(option);
             })
         });
     </script>
+
     </div>
+    <footer class="footer" style="background-color: white;text-align: left">
+        <div class="container">
+                <br>source@ <a href="https://data.gov.hk/tc-data/dataset/hk-dh-dh_ncdd-ncdd-alcohol-consumption-per-capita-2004-2015">估計總飲酒量和人均飲酒量</a>
+                <br>code reference: <a href="http://echarts.baidu.com/demo.html#area-stack">echarts</a></p>
+        </div>
+    </footer>
+   
 </body>
 </html>
