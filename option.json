@@ -5,7 +5,7 @@
         "trigger": "axis"
     },
      "legend": {
-        "data":["飲酒量","死亡率"]
+        "data":["飲酒量","死亡人數"]
     },
 
     "toolbox": {
